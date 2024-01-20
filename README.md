@@ -17,7 +17,7 @@ com.MEC.ReactiveAppApplication
 ## Interface
 
 ## Architecture
-  ![Connection](https://imgur.com/a/MkOIMDN)
+  [![](https://imgur.com/a/MkOIMDN)](https://github.com/TiGOjava)
 ## Copyright
 
 Released under the Apache License 2.0. See the [LICENSE](https://github.com/codecentric/springboot-sample-app/blob/master/LICENSE) file.
