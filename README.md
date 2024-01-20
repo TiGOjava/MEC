@@ -16,8 +16,8 @@ com.MEC.ReactiveAppApplication
 
 ## Interface
 
-## Endpoints
-
+## Architecture
+  (https://imgur.com/a/MkOIMDN)
 ## Copyright
 
 Released under the Apache License 2.0. See the [LICENSE](https://github.com/codecentric/springboot-sample-app/blob/master/LICENSE) file.
