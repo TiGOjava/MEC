@@ -17,7 +17,7 @@ com.MEC.ReactiveAppApplication
 ## Interface
 
 ## Architecture
-  ![alt text](https://i.imgur.com/1nyiW9g.png)
+  ![alt text](https://i.imgur.com/m0Pa1Aj.png)
 ## Copyright
 
 Released under the Apache License 2.0. See the [LICENSE](https://github.com/codecentric/springboot-sample-app/blob/master/LICENSE) file.
