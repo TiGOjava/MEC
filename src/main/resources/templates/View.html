@@ -18,15 +18,16 @@
             eventSource.onerror = function (error) {
                 console.error('Błąd w połączeniu SSE:', error);
                 eventSource.close();
+                // Ustawienie ponownego połączenia po błędzie
                 setTimeout(function() {
                     location.reload();
-                }, 5000);
+                }, 5000); // Odśwież stronę co 5 sekund (5000 milisekund)
             };
         });
     </script>
 </head>
 <body>
 <h1>Dynamicznie Zmieniające Się Dane</h1>
-<div id="dataContainer">%</div>
+<div id="dataContainer"></div>
 </body>
 </html>
