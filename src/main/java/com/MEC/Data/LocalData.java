@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "Values")
-@ToString
 @NoArgsConstructor
 @Getter
 @Setter

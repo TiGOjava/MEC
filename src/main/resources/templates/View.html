@@ -12,7 +12,7 @@
 
             eventSource.onmessage = function (event) {
                 const data = JSON.parse(event.data);
-                dataContainer.text('Value: ' + data.value);
+                dataContainer.text(data.value + ' %');
             };
 
             eventSource.onerror = function (error) {
@@ -27,7 +27,7 @@
     </script>
 </head>
 <body>
-<h1>Dynamicznie Zmieniające Się Dane</h1>
-<div id="dataContainer"></div>
+<h1>Pojemność magazynu energi</h1>
+<div id="dataContainer">%</div>
 </body>
 </html>
