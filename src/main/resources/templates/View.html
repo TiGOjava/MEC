@@ -16,7 +16,7 @@
             };
 
             eventSource.onerror = function (error) {
-                console.error('Błąd w połączeniu SSE:', error);
+                console.error('Błąd w połączeniu SSE:', error)
                 eventSource.close();
                 // Ustawienie ponownego połączenia po błędzie
                 setTimeout(function() {
