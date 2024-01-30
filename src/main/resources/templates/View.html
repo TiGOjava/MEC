@@ -4,30 +4,273 @@
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/updateData.js"></script>
-    <script>
-        $(document).ready(function() {
-            const dataContainer = $('#dataContainer');
-
-            const eventSource = new EventSource('/api/data');
-
-            eventSource.onmessage = function (event) {
-                const data = JSON.parse(event.data);
-                dataContainer.text(data.value + ' %');
-            };
-
-            eventSource.onerror = function (error) {
-                console.error('Błąd w połączeniu SSE:', error)
-                eventSource.close();
-                // Ustawienie ponownego połączenia po błędzie
-                setTimeout(function() {
-                    location.reload();
-                }, 5000); // Odśwież stronę co 5 sekund (5000 milisekund)
-            };
-        });
-    </script>
 </head>
 <body>
-<h1>Pojemność magazynu energi</h1>
-<div id="dataContainer">%</div>
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<div class="data-container">
+    <div class="data-info">
+        <h1>POZIOM NAŁADOWANIA</h1>
+        <div class="data-info-value">
+<!--            <span class="value-lvl">0</span>-->
+            <div id="dataContainer" style="font-size: 90px; font-weight: 900; margin-left: 10px;">%</div>
+        </div>
+        <div class="data-status">
+            <img src="../icons/high.png" alt="">
+<!--            <span class="statusInfoText" id="statusText">Status info</span>-->
+        </div>
+    </div>
+    <div class="data-image">
+        <div class="batery">
+            <div class="value-40"></div>
+        </div>
+    </div>
+</div>
 </body>
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: #080710;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .background{
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+    }
+    .background .shape{
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+    }
+    .shape:first-child{
+        background: linear-gradient(
+                #1845ad,
+                #23a2f6
+        );
+        left: -220px;
+        top: -80px;
+    }
+    .shape:last-child{
+        background: linear-gradient(
+                to right,
+                #ff512f,
+                #f09819
+        );
+        right: -300px;
+        bottom: -80px;
+    }
+
+    .data-container {
+        display: flex;
+        flex-direction: row;
+        padding: 40px;
+        background-color: rgba(255,255,255,0.13);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        height: 600px;
+        width: 800px;
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    }
+
+    .data-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        padding-left: 40px;
+        flex: 1;
+    }
+
+    .data-info-value {
+        display: flex;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+    .value-lvl {
+        font-size: 90px;
+        font-weight: 900;
+    }
+
+    #dataContainer {
+        font-size: 90px;
+    }
+
+    .data-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .batery {
+        z-index: 0;
+        display: flex;
+        align-items: flex-end;
+        margin-left: 50px;
+        height: 80%;
+        width: 50%;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+
+    .value-10 {
+        z-index: 0;
+        width: 100%;
+        height: 10%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(188, 0, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-20 {
+        z-index: 0;
+        width: 100%;
+        height: 20%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: red;
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-30 {
+        z-index: 0;
+        width: 100%;
+        height: 30%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(255, 85, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-40 {
+        z-index: 0;
+        width: 100%;
+        height: 40%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(255, 136, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-50 {
+        z-index: 0;
+        width: 100%;
+        height: 50%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #ffd500;
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-60 {
+        z-index: 0;
+        width: 100%;
+        height: 50%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(225, 255, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-60 {
+        z-index: 0;
+        width: 100%;
+        height: 60%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(225, 255, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-70 {
+        z-index: 0;
+        width: 100%;
+        height: 70%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(187, 255, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-80 {
+        z-index: 0;
+        width: 100%;
+        height: 80%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(145, 255, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-90 {
+        z-index: 0;
+        width: 100%;
+        height: 90%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(81, 255, 0);
+        transition: 0.3s ease-in-out;
+    }
+
+    .value-100 {
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #00ff2f;
+        transition: 0.3s ease-in-out;
+    }
+
+    .data-status {
+        display: flex;
+        align-content: center;
+    }
+
+    .data-status img {
+        height: 30px;
+    }
+
+    .statusInfoText {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .data-status {
+        display: flex;
+        gap: 10px;
+    }
+
+</style>
 </html>

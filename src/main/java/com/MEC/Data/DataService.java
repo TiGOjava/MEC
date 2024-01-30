@@ -18,7 +18,7 @@ class DataService {
     // Inicjalizacja danych przy starcie aplikacji
     @PostConstruct
     public void initializeData() {
-        Flux.interval(Duration.ofMinutes(1))
+        Flux.interval(Duration.ofSeconds(10))
                 .zipWith(Flux.range(1, 100), (time, value) -> new LocalData(value))
                 .flatMap(localDataRepository::save)
                 .subscribe();
