@@ -18,7 +18,7 @@ class DataService {
     // Inicjalizacja danych przy starcie aplikacji
     @PostConstruct
     public void initializeData() {
-        Flux.interval(Duration.ofSeconds(10))
+        Flux.interval(Duration.ofSeconds(5))
                 .zipWith(Flux.range(1, 100), (time, value) -> new LocalData(value))
                 .flatMap(localDataRepository::save)
                 .subscribe();
@@ -29,10 +29,10 @@ class DataService {
         return localDataRepository.findAll();
     }
 
-    // Aktualizacja danych co 10 sekund
+    // Aktualizacja danych co 1 sekundę
     @PostConstruct
     public void updateData() {
-        Flux.interval(Duration.ofSeconds(10))
+        Flux.interval(Duration.ofSeconds(1))
                 .zipWith(Flux.range(1, Integer.MAX_VALUE), (time, value) -> value)
                 .flatMap(value -> localDataRepository.findAll().take(1)
                         .flatMap(data -> {
