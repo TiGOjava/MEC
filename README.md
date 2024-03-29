@@ -16,8 +16,8 @@ com.MEC.ReactiveAppApplication
  
 ## Interface
 
-## Architecture
+## Data Base Schema
   ![alt text](https://i.imgur.com/i4GXmH4.png)
 ## Copyright
 
-Released under the Apache License 2.0. See the [LICENSE](https://github.com/codecentric/springboot-sample-app/blob/master/LICENSE) file.
+
