@@ -18,6 +18,26 @@ com.MEC.ReactiveAppApplication
 
 ## Data Base Schema
   ![alt text](https://i.imgur.com/i4GXmH4.png)
-## Copyright
+
+
+
+## Home View : 
+![alt text](https://i.imgur.com/IK7BMYS.png)
+
+## Employee View : 
+![alt text](https://i.imgur.com/MinBjMo.png)
+
+## Login and register for Coordinator : 
+![alt text](https://i.imgur.com/5oINPve.png)
+
+## Coordinator View : 
+![alt text](https://i.imgur.com/jIBWTCg.png)
+
+## Coordinator Product List : 
+![alt text](https://i.imgur.com/mFVXjcE.png)
+
+## Coordinator Order Page : 
+![alt text](https://i.imgur.com/Suhf08j.png)
+
 
 
